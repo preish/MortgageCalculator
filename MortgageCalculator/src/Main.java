@@ -22,6 +22,7 @@ public class Main {
 				                      (Math.pow((1 + monthlyInterestRate), (double) numOfPayments) - 1);
 		System.out.println("Mortgage: " + mortgageFormat.format(mortgage));
 		
+		// Close Scanner
 		scanner.close();
 	}
 	
