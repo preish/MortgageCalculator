@@ -22,30 +22,45 @@ public class Main {
 				                      (Math.pow((1 + monthlyInterestRate), (double) numOfPayments) - 1);
 		System.out.println("Mortgage: " + mortgageFormat.format(mortgage));
 		
-		// Close Scanner
 		scanner.close();
 	}
 	
 	// Ask for the principal amount
 	public static int getPrincipal(Scanner scanner) {
-		System.out.print("Principal: ");
-		int userPrincipal = scanner.nextInt();
+		int userPrincipal;
 		
+		// Loop while user principal amount does not meet criteria specified
+		System.out.print("Principal ($1k - $1M): ");
+		while((userPrincipal = scanner.nextInt()) < 1000 || userPrincipal > 1000000) {
+			System.out.println("Enter a number between 1,000 and 1,000,000.");
+			System.out.print("Principal ($1k - $1M): ");
+		}
 		return userPrincipal;
 	}
 	
 	// Ask for the annual interest rate
 	public static double getAnnualInterestRate(Scanner scanner) {
-		System.out.print("Annual Interest Rate: ");
-		double userAnnInterestRate = scanner.nextDouble();
+		double userAnnInterestRate;
 		
+		// Loop while user annual interest rate does not meet criteria specified
+		System.out.print("Annual Interest Rate: ");
+		while((userAnnInterestRate = scanner.nextDouble()) < 0.0 && userAnnInterestRate > 30.0); {
+			System.out.println("Enter a value greater than 0 and less than or equal to 30");
+			System.out.print("Annual Interest Rate: ");
+		}
 		return userAnnInterestRate;
 	}
 	
 	// Ask for the mortgage period
 	public static int getMortgagePeriod(Scanner scanner) {
+		int userPeriod;
+		
+		// Loop while user period amount does not meet criteria specified
 		System.out.print("Period (Years): ");
-		int userPeriod = scanner.nextInt();
+		while((userPeriod = scanner.nextInt()) < 1 || userPeriod > 30) {
+			System.out.println("Enter a value between 1 and 30.");
+			System.out.print("Period (Years): ");
+		}
 		
 		return userPeriod;
 	}
